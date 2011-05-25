@@ -35,7 +35,14 @@ Dishfish::Application.configure do
   # config.action_controller.asset_host = "http://assets.example.com"
 
   # Disable delivery errors, bad email addresses will be ignored
-  # config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.raise_delivery_errors = false
+  # The following are for Site5. 
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.default_url_options = { :host => "blackhawk.webserversystems.com" }
+  config.action_mailer.smtp_settings = { :address => "blackhawk.webserversystems.com",
+							:openssl_verify_mode => "none",
+							:authentication => :cram_md5 }
+							
 
   # Enable threaded mode
   # config.threadsafe!
